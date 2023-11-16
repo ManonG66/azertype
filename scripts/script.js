@@ -1,49 +1,47 @@
+/* eslint-disable no-console */
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 function afficherResultat(score, nbMotsProposes) {
-    let spanScore = document.querySelector(".zoneScore span")
+  const spanScore = document.querySelector('.zoneScore span');
 
-    let affichageScore = `${score} / ${nbMotsProposes}`
+  const affichageScore = `${score} / ${nbMotsProposes}`;
 
-    spanScore.innerText = affichageScore
+  spanScore.innerText = affichageScore;
 
-    console.log("Votre score est de " + score + " sur " + nbMotsProposes)
+  console.log(`Votre score est de ${score} sur ${nbMotsProposes}`);
 }
 
 function afficherProposition(proposition) {
-    let zoneProposition = document.querySelector(".zoneProposition")
-    zoneProposition.innerText = proposition
+  const zoneProposition = document.querySelector('.zoneProposition');
+  zoneProposition.innerText = proposition;
 }
 
 
 function lancerJeu() {
+  const score = 0;
+  const nbMotsProposes = 0;
+  let i = 0;
 
-    let score = 0;
-    let nbMotsProposes = 0;
-    let i = 0;
+  const btnValiderMot = document.getElementById('btnValiderMot');
+  const inputEcriture = document.getElementById('inputEcriture');
 
-    let btnValiderMot = document.getElementById("btnValiderMot")
-    let inputEcriture = document.getElementById("inputEcriture")
-    
-   
 
-    afficherProposition(listeMots[i])
-    btnValiderMot.addEventListener("click", () => {
-        inputEcriture.value = "";
-        console.log(inputEcriture.value)
+  afficherProposition(listeMots[i]);
+  btnValiderMot.addEventListener('click', () => {
+    inputEcriture.value = '';
+    console.log(inputEcriture.value);
 
-        if (listeMots[i]=== input)
-        
-        if (listeMots[i] === undefined) {
-            afficherProposition("le jeu est terminé");
-            btnValiderMot.disabled = true
+    if (listeMots[i] === input) {
+      if (listeMots[i] === undefined) {
+        afficherProposition('le jeu est terminé');
+        btnValiderMot.disabled = true;
+      } else {
+        afficherProposition(listeMots[i]);
+      }
+    }
 
-        } else {
-            afficherProposition(listeMots[i]);
-        
-        }
-        
-        i++
-    })
+    i++;
+  });
 
-    afficherResultat(score, nbMotsProposes)
-
+  afficherResultat(score, nbMotsProposes);
 }
